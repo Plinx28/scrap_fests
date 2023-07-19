@@ -3,10 +3,6 @@ import requests
 from proxy_auth import proxies
 import json
 
-headers = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
-}
-
 # collect all fest URLs
 fests_urls = []
 fest_list_result = []
@@ -15,7 +11,7 @@ for i in range(0, 169, 24):
     url = f'https://www.skiddle.com/festivals/search/?ajaxing=1&sort=0&fest_name=&from_date=16%20Jul%202023&to_date=&maxprice=500&o={i}&bannertitle=July'
 
     # req = requests(url=url, headers=headers, proxies=proxies)
-    req = requests.get(url=url, headers=headers)
+    req = requests.get(url=url)
     json_data = json.loads(req.text)
     html_response = json_data['html']
 
